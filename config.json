@@ -1,0 +1,340 @@
+{
+    "adminAccount": "steltix",
+    "adminUser": "JDESYS",
+    "modules": [
+        {
+            "id": "00000",
+            "description": "Home",
+            "active": true,
+            "comment": "Connection manager with login dialog.",
+            "versions": [
+                {
+                    "form": "default",
+                    "version": "ZJDE0001"
+                },
+                {
+                    "form": "W0010C",
+                    "version": " "
+                }
+            ]
+        },
+        {
+            "id": "00010",
+            "description": "Watchlists",
+            "active": true,
+            "comment": "All personal and shared watchlists are available for favorite selection. Favorite selected watchlists are displayed in cards.",
+            "versions": [
+                {
+                    "form": "default",
+                    "version": "ZJDE0001"
+                }
+            ]
+        },
+        {
+            "id": "00020",
+            "description": "Submitted Jobs",
+            "active": true,
+            "comment": "A simple browse table of the submitted jobs queue for the login user.",
+            "versions": [
+                {
+                    "form": "default",
+                    "version": "ZJDE0001"
+                }
+            ]
+        },
+        {
+            "id": "00030",
+            "description": "Address Book",
+            "active": true,
+            "comment": "A simple but complete CRUD on the Address Book.",
+            "versions": [
+                {
+                    "form": "default",
+                    "version": "ZJDE0001"
+                }
+            ]
+        },
+        {
+            "id": "00300",
+            "description": "Barcode Scanning",
+            "active": false,
+            "comment": "Sub menu folder for barcode scanning apps.",
+            "versions": [
+                {
+                    "form": "default",
+                    "version": "ZJDE0001"
+                }
+            ]
+        },
+        {
+            "id": "00310",
+            "description": "Inventory Transfer",
+            "active": false,
+            "comment": "Inventory transfer barcode scanning...",
+            "versions": [
+                {
+                    "form": "default",
+                    "version": "ZJDE0001"
+                }
+            ]
+        },
+        {
+            "id": "00320",
+            "description": "Picking",
+            "active": false,
+            "comment": "Picking barcode scanning...",
+            "versions": [
+                {
+                    "form": "default",
+                    "version": "ZJDE0001"
+                }
+            ]
+        },
+        {
+            "id": "00110",
+            "description": "APA Approvals",
+            "active": false,
+            "comment": "APA workflow approvals...",
+            "versions": [
+                {
+                    "form": "default",
+                    "version": "ZJDE0001"
+                }
+            ]
+        }
+    ],
+    "accounts": [
+        {
+            "id": "steltix",
+            "description": "Steltix BV",
+            "expiry": "2018-12-31",
+            "environments": [
+                {
+                    "ais": "demo.steltix.com",
+                    "description": "Demo",
+                    "expiry": "",
+                    "modules": [
+                        {
+                            "id": "00300",
+                            "description": "",
+                            "active": true,
+                            "expiry": "",
+                            "versions": []
+                        },
+                        {
+                            "id": "00310",
+                            "description": "",
+                            "active": true,
+                            "expiry": "",
+                            "versions": []
+                        },
+                        {
+                            "id": "00320",
+                            "description": "",
+                            "active": true,
+                            "expiry": "",
+                            "versions": []
+                        }
+                    ],
+                    "users": [
+                        {
+                            "id": "DEMO",
+                            "modules": [
+                                {
+                                    "id": "00320",
+                                    "description": "",
+                                    "active": false
+                                }
+                            ]
+                        },
+                        {
+                            "id": "JDESYS",
+                            "modules": [
+                                {
+                                    "id": "00110",
+                                    "description": "",
+                                    "active": true
+                                },
+                                {
+                                    "id": "00310",
+                                    "description": "",
+                                    "active": false
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "ais": "sandbox921.steltix.com",
+                    "description": "Sandbox",
+                    "expiry": "",
+                    "modules": [
+                        {
+                            "id": "00110",
+                            "description": "",
+                            "active": true,
+                            "expiry": "",
+                            "versions": []
+                        }
+                    ],
+                    "users": [
+                        {
+                            "id": "",
+                            "modules": [
+                                {
+                                    "id": "",
+                                    "description": "",
+                                    "active": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "burg",
+            "description": "Burg Groep",
+            "expiry": "",
+            "environments": [
+                {
+                    "ais": "ais.burg.pd",
+                    "description": "Production",
+                    "expiry": "",
+                    "modules": [
+                        {
+                            "id": "",
+                            "description": "",
+                            "active": true,
+                            "expiry": "",
+                            "versions": []
+                        }
+                    ],
+                    "users": [
+                        {
+                            "id": "",
+                            "modules": [
+                                {
+                                    "id": "",
+                                    "description": "",
+                                    "active": true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "ais": "ais.burg.dv",
+                    "description": "Develpment",
+                    "expiry": "",
+                    "modules": [
+                        {
+                            "id": "",
+                            "description": "",
+                            "active": true,
+                            "expiry": "",
+                            "versions": []
+                        }
+                    ],
+                    "users": [
+                        {
+                            "id": "",
+                            "modules": [
+                                {
+                                    "id": "",
+                                    "description": "",
+                                    "active": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "keune",
+            "description": "Keune Haircosmetics BV",
+            "expiry": "",
+            "environments": [
+                {
+                    "ais": "ais.keune.pd",
+                    "description": "Production",
+                    "expiry": "",
+                    "modules": [
+                        {
+                            "id": "",
+                            "description": "",
+                            "active": true,
+                            "expiry": "",
+                            "versions": []
+                        }
+                    ],
+                    "users": [
+                        {
+                            "id": "",
+                            "modules": [
+                                {
+                                    "id": "",
+                                    "description": "",
+                                    "active": true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "ais": "ais.keune.ac",
+                    "description": "Acceptance",
+                    "expiry": "",
+                    "modules": [
+                        {
+                            "id": "",
+                            "description": "",
+                            "active": true,
+                            "expiry": "",
+                            "versions": []
+                        }
+                    ],
+                    "users": [
+                        {
+                            "id": "",
+                            "modules": [
+                                {
+                                    "id": "",
+                                    "description": "",
+                                    "active": true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "ais": "ais.keune.py",
+                    "description": "Test",
+                    "expiry": "",
+                    "modules": [
+                        {
+                            "id": "",
+                            "description": "",
+                            "active": true,
+                            "expiry": "",
+                            "versions": []
+                        }
+                    ],
+                    "users": [
+                        {
+                            "id": "",
+                            "modules": [
+                                {
+                                    "id": "",
+                                    "description": "",
+                                    "active": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

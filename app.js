@@ -8,14 +8,15 @@ var cors = require('cors');
 
 var route = require('./routes/routes');
 
-var Router = route();
+
 
 //define mongo url
-const mongoURL = "mongodb://127.0.0.1/shoesAPI";
+const mongoURL = process.env.MONGO_DB_URL ||'mongodb://localhost/config-server';
+const Models = require('./models');
+const models = Models(mongoURL);
+var Router = route(models);
 
 var app = express();
-
-
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
