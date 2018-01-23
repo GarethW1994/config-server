@@ -6,8 +6,6 @@ module.exports = function(models) {
 
         res.send("Express App !");
     }
-
-
     // readconfig route
 
     const readconfig = function(req, res, next) {
@@ -32,40 +30,35 @@ module.exports = function(models) {
     const writeconfig = function(req, res, next) {
         // write config data to mongodb
         var conf = req.body;
-        // models.myconfig.create(conf, function (err, results) {
-        //     if (err){
-        //         if(err.code ==11000){
-        //             models.myconfig.findOne({
-        //                 adminAccount: conf.adminAccount
-        //             }, function(err, updatedresults){
-        //                 if(err){
-        //                     return next(err);
-        //                 }else{
-        //                     updatedresults.conf = conf;
-        //                     updatedresults.save();
-        //                     console.log(updatedresults)
-        //                     res.redirect("/readconfig")
-        //                 }
-        //             })
-        //         }
-              
-        //     }
-        //     //console.log(err);
-        //     //console.log(results);
-  
+        //creating new Admin acount
+        models.myconfig.create(conf, function (err, results) {
+            if (err){
+                if(err.code ==11000){
+                    //updating the existing account
+                    models.myconfig.update({
+                        adminAccount: conf.adminAccount
+                    }, {
+                        modules: conf.modules,
+                        accounts: conf.accounts
+                    }, function (options, callback) {
+                        console.log(callback);
+                    })
+                    .then(function(){
+                        models.myconfig.find({}, function(err, config){
+                            if (err) throw err;
             
+                        })
+                        .then(function(config){
+                            res.redirect("/jde/get_config");
+                        })
+                    });
+                }
+              
+            }else{
+                res.json(results)
+            }
   
-        //   })
-
-        models.myconfig.update({
-			adminAccount: conf.adminAccount
-		}, {
-			modules: conf.modules
-		}, function (options, callback) {
-			console.log(callback);
-        });
-        // res.send('writeconfig');
-        // res.json(results);
+          })
     }
 
     return {

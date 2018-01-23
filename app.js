@@ -34,15 +34,15 @@ app.use(function(req, res, next) {
 app.use(cors());
 
 app.get('/', Router.index);
-app.get('/readconfig', Router.readconfig);
-app.post('/writeconfig', Router.writeconfig);
+app.get('/jde/get_config', Router.readconfig);
+app.post('/jde/write_config', Router.writeconfig);
 
 // catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-//   var err = new Error('Not Found');
-//   err.staerrtus = 404;
-//   next();
-// });
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.staerrtus = 404;
+  next();
+});
 
 // PORT
 const port = process.env.PORT || 5000;
