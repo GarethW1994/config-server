@@ -12,8 +12,10 @@ module.exports = function(models) {
 
     const readconfig = function(req, res, next) {
         // get config data from mongodb
-        models.myconfig.find({}, function (err, results) {
+        models.myconfig.find({},{_id: 0,
+            __v: 0}, function (err, results) {
             if (err){
+
               return next(err);
             }
             //console.log(err);
@@ -32,25 +34,31 @@ module.exports = function(models) {
         var conf = req.body;
         models.myconfig.create(conf, function (err, results) {
             if (err){
-              return next(err);
+                if(err.code ==11000){
+                    models.myconfig.findOne({
+                        adminAccount: conf.adminAccount
+                    }, function(err, updatedresults){
+                        if(err){
+                            return next(err);
+                        }else{
+                            updatedresults.conf = conf;
+                            updatedresults.save();
+                            console.log(updatedresults)
+                            res.redirect("/readconfig")
+                        }
+                    })
+                }
+              
             }
             //console.log(err);
             //console.log(results);
   
-            res.json(results);
+            
   
           })
         // res.send('writeconfig');
+        // res.json(results);
     }
-
-
-
-
-
-
-
-
-
 
     return {
         index,
