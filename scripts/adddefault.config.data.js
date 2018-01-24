@@ -5,7 +5,7 @@ const Models = require('../models');
 const mongoURL = process.env.MONGO_DB_URL || 'mongodb://localhost/config-server';
 const models = Models(mongoURL);
 
-const defualt_config = function () {
+async function importConfigData() {
 
     // const filePath = ''
     fs.readFile('./config.json', 'utf8', function (err, data) {
