@@ -38,16 +38,13 @@ app.get('/', Router.index);
 // Get route to read the config data from the database
 app.get('/jde/get_config', Router.readconfig);
 
-// Get route to add default config data to the database
-app.get('/jde/initialise_config', Router.initialize_config);
-
 // Post Route For Updating the config
 app.post('/jde/write_config', Router.writeconfig);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
-  err.staerrtus = 404;
+  err.status = 404;
   next();
 });
 

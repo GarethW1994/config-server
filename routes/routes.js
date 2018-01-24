@@ -64,15 +64,9 @@ module.exports = function(models) {
           })
     }
 
-    const initialize_config = function(req, res, next) {
-        
-    }
-
-
     return {
         index,
         readconfig,
-        writeconfig,
-        initialize_config
+        writeconfig
     }
 }
