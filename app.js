@@ -5,7 +5,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var path = require("path");
 var cors = require('cors');
-
 var route = require('./routes/routes');
 
 
@@ -33,8 +32,16 @@ app.use(function(req, res, next) {
 
 app.use(cors());
 
+// Get Route to get home
 app.get('/', Router.index);
+
+// Get route to read the config data from the database
 app.get('/jde/get_config', Router.readconfig);
+
+// Get route to add default config data to the database
+app.get('/jde/initialise_config', Router.initialize_config);
+
+// Post Route For Updating the config
 app.post('/jde/write_config', Router.writeconfig);
 
 // catch 404 and forward to error handler

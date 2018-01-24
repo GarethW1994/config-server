@@ -1,4 +1,7 @@
 const express = require("express");
+const fs = require("fs");
+
+
 
 module.exports = function(models) {
     // root route
@@ -17,7 +20,7 @@ module.exports = function(models) {
               return next(err);
             }
             //console.log(err);
-            //console.log(results);
+            console.log(results);
   
             res.json(results);
   
@@ -61,9 +64,15 @@ module.exports = function(models) {
           })
     }
 
+    const initialize_config = function(req, res, next) {
+        
+    }
+
+
     return {
         index,
         readconfig,
-        writeconfig
+        writeconfig,
+        initialize_config
     }
 }
