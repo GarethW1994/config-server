@@ -12,16 +12,12 @@ module.exports = function(models) {
     // readconfig route
 
     const readconfig = async function(req, res, next) {
-        // db.domain.find().sort({lastModifiedDate:-1}).limit(10)
-        //db.market.find({}).sort({_id:-1}).limit(1)
-        // get config data from mongodb
-
-        let latestData = await models.myconfig.find({}).sort({_id: -1}).limit(1);
-
-        var convertData = JSON.parse(latestData[0].config)
-    
-
-        res.json(convertData);
+        models.myconfig.find({}, function(err, data) {
+            if (err) throw err;
+        })
+            .then(function(data) {
+                res.json(data[0].config[0]);
+            })
     }
 
     
@@ -30,12 +26,18 @@ module.exports = function(models) {
         // write config data to mongodb
         var conf = req.body;
         //creating new Admin acount
-        models.myconfig.create({config : JSON.stringify(conf)}, function (err, results) {
+        models.myconfig.update({config : conf}, function (err, results) {
             if (err) throw err;
                 
-            var configObj = JSON.parse(results.config)
-            res.json(configObj);
-          })
+          }) 
+            .then(function(results) {
+                models.myconfig.find({}, function(err, data) {
+                    if (err) throw err;
+                }) 
+                 .then(function(data) {
+                    res.json(data[0].config[0]);
+                 })
+            })
     } 
 
     return {

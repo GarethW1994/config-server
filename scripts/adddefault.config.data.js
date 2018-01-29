@@ -22,7 +22,7 @@ const defualt_config = function () {
                     console.log('... addding default config data ...');
 
                     //creating new Admin acount
-                    models.myconfig.create({config: JSON.stringify(configObject)}, function (err, results) {
+                    models.myconfig.create({config: configObject}, function (err, results) {
                         if (err) throw err;
 
                         console.log("Result", results);

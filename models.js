@@ -5,7 +5,7 @@ module.exports = function(mongoURL) {
   mongoose.connect(mongoURL);
 
   const configSchema = mongoose.Schema({
-    config: String    
+    config: Array    
   });
 
   const myconfig = mongoose.model('configurations', configSchema);
