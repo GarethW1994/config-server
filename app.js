@@ -36,10 +36,10 @@ app.use(cors());
 app.get('/', Router.index);
 
 // Get route to read the config data from the database
-app.get('/jde/get_config', Router.readconfig);
+app.get('/readconfig', Router.readconfig);
 
 // Post Route For Updating the config
-app.post('/jde/write_config', Router.writeconfig);
+app.post('/writeconfig', Router.writeconfig);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

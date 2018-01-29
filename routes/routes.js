@@ -11,21 +11,17 @@ module.exports = function(models) {
     }
     // readconfig route
 
-    const readconfig = function(req, res, next) {
+    const readconfig = async function(req, res, next) {
+        // db.domain.find().sort({lastModifiedDate:-1}).limit(10)
+        //db.market.find({}).sort({_id:-1}).limit(1)
         // get config data from mongodb
-        models.myconfig.find({},{_id: 0,
-            __v: 0}, function (err, results) {
-            if (err){
 
-              return next(err);
-            }
-            //console.log(err);
-            console.log(results);
-  
-            res.json(results);
-  
-          })
-        // res.send("readconfig");
+        let latestData = await models.myconfig.find({}).sort({_id: -1}).limit(1);
+
+        var convertData = JSON.parse(latestData[0].config)
+    
+
+        res.json(convertData);
     }
 
     
@@ -34,35 +30,13 @@ module.exports = function(models) {
         // write config data to mongodb
         var conf = req.body;
         //creating new Admin acount
-        models.myconfig.create(conf, function (err, results) {
-            if (err){
-                if(err.code ==11000){
-                    //updating the existing account
-                    models.myconfig.update({
-                        adminAccount: conf.adminAccount
-                    }, {
-                        modules: conf.modules,
-                        accounts: conf.accounts
-                    }, function (options, callback) {
-                        console.log(callback);
-                    })
-                    .then(function(){
-                        models.myconfig.find({}, function(err, config){
-                            if (err) throw err;
-            
-                        })
-                        .then(function(config){
-                            res.redirect("/jde/get_config");
-                        })
-                    });
-                }
-              
-            }else{
-                res.json(results)
-            }
-  
+        models.myconfig.create({config : JSON.stringify(conf)}, function (err, results) {
+            if (err) throw err;
+                
+            var configObj = JSON.parse(results.config)
+            res.json(configObj);
           })
-    }
+    } 
 
     return {
         index,
