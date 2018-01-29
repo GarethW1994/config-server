@@ -55,6 +55,30 @@
             ]
         },
         {
+            "id": "00040",
+            "description": "dropZone",
+            "active": true,
+            "comment": "Steltix dropZone",
+            "versions": [
+                {
+                    "form": "default",
+                    "version": "ZJDE0001"
+                }
+            ]
+        },
+        {
+            "id": "00110",
+            "description": "APA Approvals",
+            "active": false,
+            "comment": "APA workflow approvals...",
+            "versions": [
+                {
+                    "form": "default",
+                    "version": "ZJDE0001"
+                }
+            ]
+        },
+        {
             "id": "00300",
             "description": "Barcode Scanning",
             "active": false,
@@ -89,51 +113,85 @@
                     "version": "ZJDE0001"
                 }
             ]
-        },
-        {
-            "id": "00110",
-            "description": "APA Approvals",
-            "active": false,
-            "comment": "APA workflow approvals...",
-            "versions": [
-                {
-                    "form": "default",
-                    "version": "ZJDE0001"
-                }
-            ]
         }
     ],
     "accounts": [
         {
             "id": "steltix",
-            "description": "Steltix BV",
-            "expiry": "2018-12-31",
+            "description": "Steltix",
+            "expiry": "",
             "environments": [
                 {
-                    "ais": "demo.steltix.com",
-                    "description": "Demo",
+                    "ais": "10.122.1.111:7125",
+                    "description": "Engineering PS910",
                     "expiry": "",
                     "modules": [
                         {
-                            "id": "00300",
-                            "description": "",
-                            "active": true,
+                            "id": "00010",
+                            "description": "Watchlists",
                             "expiry": "",
+                            "active": false,
+                            "versions": []
+                        }
+                    ],
+                    "users": []
+                },
+                {
+                    "ais": "demo.steltix.com",
+                    "description": "Public Demo",
+                    "expiry": "",
+                    "modules": [
+                        {
+                            "id": "00020",
+                            "description": "Submitted Jobs",
+                            "expiry": "",
+                            "active": true,
+                            "versions": [
+                                {
+                                    "form": "default",
+                                    "version": "ZJDE0001"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "00300",
+                            "description": "Barcode Scanning",
+                            "expiry": "",
+                            "active": true,
                             "versions": []
                         },
                         {
                             "id": "00310",
-                            "description": "",
-                            "active": true,
+                            "description": "Inventory Transfer",
                             "expiry": "",
+                            "active": true,
                             "versions": []
                         },
                         {
                             "id": "00320",
-                            "description": "",
-                            "active": true,
+                            "description": "Picking",
                             "expiry": "",
+                            "active": true,
                             "versions": []
+                        },
+                        {
+                            "id": "00110",
+                            "description": "APA Approvals",
+                            "expiry": "",
+                            "active": true,
+                            "versions": []
+                        },
+                        {
+                            "id": "00010",
+                            "description": "Watchlists",
+                            "expiry": "",
+                            "active": true,
+                            "versions": [
+                                {
+                                    "form": "default",
+                                    "version": "ZJDE0001"
+                                }
+                            ]
                         }
                     ],
                     "users": [
@@ -141,24 +199,24 @@
                             "id": "DEMO",
                             "modules": [
                                 {
-                                    "id": "00320",
+                                    "id": "00300",
                                     "description": "",
                                     "active": false
-                                }
-                            ]
-                        },
-                        {
-                            "id": "JDESYS",
-                            "modules": [
-                                {
-                                    "id": "00110",
-                                    "description": "",
-                                    "active": true
                                 },
                                 {
                                     "id": "00310",
                                     "description": "",
                                     "active": false
+                                },
+                                {
+                                    "id": "00320",
+                                    "description": "",
+                                    "active": false
+                                },
+                                {
+                                    "id": "00110",
+                                    "description": "APA Goedkeuring",
+                                    "active": true
                                 }
                             ]
                         }
@@ -166,173 +224,10 @@
                 },
                 {
                     "ais": "sandbox921.steltix.com",
-                    "description": "Sandbox",
+                    "description": "Sandbox 921",
                     "expiry": "",
-                    "modules": [
-                        {
-                            "id": "00110",
-                            "description": "",
-                            "active": true,
-                            "expiry": "",
-                            "versions": []
-                        }
-                    ],
-                    "users": [
-                        {
-                            "id": "",
-                            "modules": [
-                                {
-                                    "id": "",
-                                    "description": "",
-                                    "active": true
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": "burg",
-            "description": "Burg Groep",
-            "expiry": "",
-            "environments": [
-                {
-                    "ais": "ais.burg.pd",
-                    "description": "Production",
-                    "expiry": "",
-                    "modules": [
-                        {
-                            "id": "",
-                            "description": "",
-                            "active": true,
-                            "expiry": "",
-                            "versions": []
-                        }
-                    ],
-                    "users": [
-                        {
-                            "id": "",
-                            "modules": [
-                                {
-                                    "id": "",
-                                    "description": "",
-                                    "active": true
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "ais": "ais.burg.dv",
-                    "description": "Develpment",
-                    "expiry": "",
-                    "modules": [
-                        {
-                            "id": "",
-                            "description": "",
-                            "active": true,
-                            "expiry": "",
-                            "versions": []
-                        }
-                    ],
-                    "users": [
-                        {
-                            "id": "",
-                            "modules": [
-                                {
-                                    "id": "",
-                                    "description": "",
-                                    "active": true
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": "keune",
-            "description": "Keune Haircosmetics BV",
-            "expiry": "",
-            "environments": [
-                {
-                    "ais": "ais.keune.pd",
-                    "description": "Production",
-                    "expiry": "",
-                    "modules": [
-                        {
-                            "id": "",
-                            "description": "",
-                            "active": true,
-                            "expiry": "",
-                            "versions": []
-                        }
-                    ],
-                    "users": [
-                        {
-                            "id": "",
-                            "modules": [
-                                {
-                                    "id": "",
-                                    "description": "",
-                                    "active": true
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "ais": "ais.keune.ac",
-                    "description": "Acceptance",
-                    "expiry": "",
-                    "modules": [
-                        {
-                            "id": "",
-                            "description": "",
-                            "active": true,
-                            "expiry": "",
-                            "versions": []
-                        }
-                    ],
-                    "users": [
-                        {
-                            "id": "",
-                            "modules": [
-                                {
-                                    "id": "",
-                                    "description": "",
-                                    "active": true
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "ais": "ais.keune.py",
-                    "description": "Test",
-                    "expiry": "",
-                    "modules": [
-                        {
-                            "id": "",
-                            "description": "",
-                            "active": true,
-                            "expiry": "",
-                            "versions": []
-                        }
-                    ],
-                    "users": [
-                        {
-                            "id": "",
-                            "modules": [
-                                {
-                                    "id": "",
-                                    "description": "",
-                                    "active": true
-                                }
-                            ]
-                        }
-                    ]
+                    "modules": [],
+                    "users": []
                 }
             ]
         }
