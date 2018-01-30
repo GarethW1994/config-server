@@ -49,7 +49,7 @@ app.use(function(req, res, next) {
 });
 
 // PORT
-const port = 3100;
+const port = 3001;
 
 app.listen(port, function(){
     console.log("Express App Running at port " + port);
