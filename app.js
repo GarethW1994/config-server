@@ -49,7 +49,7 @@ app.use(function(req, res, next) {
 });
 
 // PORT
-const port = process.env.PORT || 5000;
+const port = 3100;
 
 app.listen(port, function(){
     console.log("Express App Running at port " + port);
