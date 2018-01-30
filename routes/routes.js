@@ -35,8 +35,7 @@ module.exports = function(models) {
                     if (err) throw err;
                 }) 
                  .then(function(data) {
-
-                    res.json(data[0]);
+                    res.json(data[0].config[0]);
                  })
             })
     } 
