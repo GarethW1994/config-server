@@ -16,7 +16,7 @@ module.exports = function(models) {
             if (err) throw err;
         })
             .then(function(data) {
-                res.json(data[0].config[0]);
+                res.json(data[0].config[0].config);
             })
     }
 
@@ -24,7 +24,8 @@ module.exports = function(models) {
     // writeconfig route
     const writeconfig = function(req, res, next) {
         // write config data to mongodb
-        var conf = req.body;
+        var conf = req.body.config;
+    
         //creating new Admin acount
         models.myconfig.update({config : conf}, function (err, results) {
             if (err) throw err;
